@@ -40,7 +40,7 @@ input
     outline: none;
     color: #fff;
 }
-input[type=button]
+input[type=submit]
 {
     border: none;
     width: 190px;
@@ -52,7 +52,7 @@ input[type=button]
     border-radius: 15px;
     cursor: pointer;
 }
-input[type=button]:hover
+input[type=submit]:hover
 {
     color: #fff;
     background-color: black;

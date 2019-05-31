@@ -1,16 +1,22 @@
 <?php
  
-$_UPLOAD['pasta'] = 'uploads/';
-  
-if ($_FILES['arquivo']['error'] != 0) {
-   die("Não foi possível fazer o upload, erro:<br />" . $_UP['erros'][$_FILES['arquivo']['error']]);
-   exit;
-}
-  
-if (move_uploaded_file($_FILES['arquivo']['tmp_name'], $_UP['pasta'])) {
-    echo "Upload efetuado com sucesso!";
+$diretorio_arq = 'C:\Users\Isaias\Documents';
+$arq = $_FILES['arquivo']; 
+ 
+$nome_arq    = $arq['name']; 
+$tamanho_arq = $arq['size']; 
+$tipo_arq    = $arq['type']; 
+$tmpname_arq = $arq['tmp_name']; 
+
+if($tamanho_arq > 0 && strlen($nome_arq) > 1) {  
+    $caminho_arq = $diretorio_arq . $nome_arq; 
+         
+	if(move_uploaded_file($tmpname_arq, $diretorio_arq)){ 
+		echo"Cadastro realizado com sucesso";				
+	}else{
+	    echo 'Não foi possível enviar'; 
+		} 
 }else{
-    echo "Não foi possível enviar o arquivo, tente novamente";
-}
-  
+    echo"Erro";
+} 
 ?>
