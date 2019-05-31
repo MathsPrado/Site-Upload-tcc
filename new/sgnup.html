@@ -1,0 +1,38 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Untitled Document</title>
+<link href="css/sgnup.css" rel="stylesheet" type="text/css" />
+
+<link href="https://fonts.googleapis.com/css?family=Play" rel="stylesheet">
+    <style>
+  
+    </style>
+</head>
+
+<body>
+<div class="signup">
+    <form>
+    <h2 style="color: #fff;">Sign Up</h2>
+    <input type="text" name="username" placeholder="Nome"><br><br>
+    <input type="text" name="username" placeholder="Email"><br><br>
+    <input type="text" name="pass" placeholder="Curso"><br><br>    
+    <input type="password" name="pass" placeholder="Senha"><br><br>   
+    <input type="button" value="Sign up" onclick="myFunction()"><br><br>
+
+        <div id="msg">Congratulations You Sign Up successfully!!</div>
+
+      Já criou sua conta?<a href="logn.html" style="text-decoration: none; font-family: 'Play', sans-serif; color: yellow;">&nbsp;Entrar</a>
+    </form>  
+    </div>
+</body>
+</html>
+
+
+<script>
+    function myFunction() {
+        var x = document.getElementById("msg");
+        x.className = "show";
+        setTimeout(function(){ x.className = x.className.replace("show", ""); }, 3000);
+    }
+    </script>
