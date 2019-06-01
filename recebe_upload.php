@@ -1,3 +1,4 @@
+
 <?php
 if(isset($_FILES['file'])){
 
@@ -16,7 +17,9 @@ if(isset($_FILES['file'])){
 
 		if(move_uploaded_file($tmpname_arq, $arq_destino)){ 
 			echo"Cadastro realizado com sucesso";
-			echo $arq_destino;				
+			echo $arq_destino;
+			sleep(5);
+			header('Location:index.html');
 		}else{
 			echo 'Não foi possível enviar'; 
 			} 

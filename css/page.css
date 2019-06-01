@@ -10,7 +10,7 @@ body
 {
     background:rgba(44, 62, 80, 0.7);
 	padding:40px;
-	width:830px;
+	width:595px;
 	margin:auto;
 	margin-top:80px;
 	height:250px;
@@ -27,7 +27,7 @@ form
 input
 {
     
-    width: 240px;
+    width: 620px;
     text-align: center;
     background: transparent;
     border: none;

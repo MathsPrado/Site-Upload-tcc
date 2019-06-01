@@ -1,3 +1,25 @@
+ <?PHP 
+
+/*  include('conexao.php');
+
+
+
+session_start();
+
+if(!isset($_SESSION['sessao_user']) && !isset($_SESSION['sessao_senha']))
+
+{
+
+	//aqui ta logado
+
+}else{
+
+    header("Location:index.html");
+    
+} */
+
+
+?> 
 <html>
 <html>
     <head>
