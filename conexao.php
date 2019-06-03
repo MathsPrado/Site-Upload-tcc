@@ -1,4 +1,5 @@
 <?php   
+<<<<<<< HEAD
     $username ="root";
     $password ="";
     function conect($in)
@@ -12,4 +13,7 @@
         }
     }
     
+=======
+    $conexao = mysqli_conect('localhost','','php') or die("Erro de Conexão"); //aaaaaaaaaaaaaaa mds
+>>>>>>> df8e2e31e0e55ec794a3acb92bcf1673bab0cef4
 ?>
