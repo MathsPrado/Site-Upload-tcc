@@ -1,25 +1,17 @@
 <?php
 
 include ('conexao.php');
+class Controle{
+    private $nome, $senha, $curso, $email;
 
-$nome = $_POST['user_name'];
-
-$login = $_POST['user_login'];
-
-$senha = $_POST['user_pass'];
-
-$curso = $_POST['user_curso'];
-
-$email = $_POST['user_email'];
-
-
-$in = mysqli_query($conexao,"insert into usuarios (NOME, CURSO, LOGIN, SENHA, EMAIL)
-    values ('$nome','$curso','$login','$senha','$email')");
-
-header("location: login.php");
-
-
-
-
+    public function criacao(){
+        $in = "INSERT INTO `usuarios`(`senha`, `nome`, `curso`, `email`)
+        VALUES ('$this->senha','$this->nome','$this->curso','$this->email')";
+        conect($in);
+    }
+    public function update(){
+        
+    }
+}
 
 ?>
