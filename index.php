@@ -1,3 +1,4 @@
+<?php require_once'valida.php';?>
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
@@ -13,7 +14,7 @@
                 <h2 style="color:#fff;">Bem Vindo</h2>
                 <input type="text" name="user_name" placeholder="Email"/><br /><br />
                 <input type="password" name="user_pass" placeholder="Senha" /><br /><br />
-                <input  type="submit" value="entrar"class="btn btn-dark" id="entrar" /><br /><br />
+                <input  type="buttom" value="entrar"class="btn btn-dark" id="entrar" /><br /><br />
                 <div id="container">
                     <a href="forget.html" style=" margin-left:5px; font-size:13px; font-family:Tahoma, Geneva, sans-serif;">Esqueci minha senha</a>
                 </div><br /><br /><br /><br /><br /><br />
