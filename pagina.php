@@ -35,6 +35,7 @@ if(!isset($_SESSION['sessao_user']) && !isset($_SESSION['sessao_senha']))
                 <input type="text" name="nome" placeholder="Nome do Arquivo"/>
                 <input type="file" name="file" />
                 <input type="submit" style="margin: 10px;" value="Enviar" />
+                <input type="submit" name="volta" style="margin: 10px;" value="Sair" />
             </form>                
         </div>
     </body>

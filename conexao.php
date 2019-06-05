@@ -22,13 +22,18 @@ function validaUsuario($entrar,$email,$senha,$con){
             echo"<script language='javascript' type='text/javascript'>
             alert('Login e/ou senha incorretos');window.location
             .href='login.html';</script>";
-            header("Location:index.php");
+            header("Location:index.html");
             die();
           }else{
             setcookie("login",$email);
             header("Location: pagina.php");
           }
       }
+    
+}
+
+function enviaPdf($nome,$caminho)
+{
     
 }
 

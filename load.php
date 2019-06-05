@@ -6,4 +6,8 @@ if (isset($_POST['entrar'])) {
     $entrar = $_POST['entrar'];
     validaUsuario($entrar,$usEmail,$usSenha,$con);
 }
+
+function expressEnvia($caminho){
+    
+}
 ?>

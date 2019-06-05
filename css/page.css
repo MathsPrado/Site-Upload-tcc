@@ -6,7 +6,7 @@ body
     background-size: cover;
 }
 
-.page
+.page, .cong, .forget, .signin, .page
 {
     background:rgba(44, 62, 80, 0.7);
 	padding:40px;
@@ -60,6 +60,36 @@ input[type=submit]:hover
 ::placeholder {
     color:aliceblue;
     opacity: 0.8; /* Firefox */
+}
+h2
+{
+    color: #000;
+    
+}
+::placeholder {
+    color:aliceblue;
+    opacity: 0.8; /* Firefox */
+}
+#msg {
+    visibility: hidden;
+    min-width: 250px;
+    background-color:yellow;
+    color: #000;
+    text-align: center;
+    border-radius: 2px;
+    padding: 16px;
+    position: fixed;
+    z-index: 1;
+    right: 30%;
+    top: 30px;
+    font-size: 17px;
+	margin-right:30px;
+}
+
+#msg.show {
+    visibility: visible;
+    -webkit-animation: fadein 0.5s, fadeout 0.5s 2.5s;
+    animation: fadein 0.5s, fadeout 0.5s 2.5s;
 }
 @-webkit-keyframes fadein {
     from {top: 0; opacity: 0;} 

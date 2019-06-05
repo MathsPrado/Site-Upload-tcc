@@ -1,5 +1,5 @@
 <?php
-require_once'conexa.php';
+require_once'load.php';
 if(isset($_FILES['file'])){
 	$textname = $_POST['nome'];
 	$arq = $_FILES['file']; 
@@ -17,12 +17,16 @@ if(isset($_FILES['file'])){
 
 		if(move_uploaded_file($tmpname_arq, $arq_destino)){ 
 			echo"Cadastro realizado com sucesso";
-			echo $arq_destino;				
+			echo $arq_destino;
+			expressEnvia($arq_destino);				
 		}else{
 			echo 'Não foi possível enviar'; 
 			} 
 	}
 }else{
 	echo"ERRO";
+}
+if(isset($_POST['volta'])){
+	header("Location:index.html");
 }
 ?>
