@@ -1,6 +1,6 @@
  <?PHP 
 
-/*  include('conexao.php');
+include('conexao.php');
 
 
 
@@ -16,7 +16,7 @@ if(!isset($_SESSION['sessao_user']) && !isset($_SESSION['sessao_senha']))
 
     header("Location:index.html");
     
-} */
+} 
 
 
 ?> 

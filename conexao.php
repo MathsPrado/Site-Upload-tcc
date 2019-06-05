@@ -13,18 +13,23 @@ function novoUsuario($con,$nome,$senha,$curso,$email){
     mysqli_close($con);
 }
 
-function validaUsuario($con,$email,$senha){
-    $sql = mysqli_query($con,"SELECT `email`,`senha` FROM `usuarios` WHERE `email`='" . $email. "' AND `senha`='" . $senha . "' limit 2");
-    if (mysqli_num_rows($sql) == 1) {
-        session_start();
-        while ($row = mysqli_fetch_assoc($sql)) {
-            $_SESSION['sessao_user'] = $row['email'];
-            $_SESSION['sessao_senha'] = $row['senha'];
-        }
-        header("Location: pagina.php");
-    } else {
-        echo "conta inválida";
-    }
+function validaUsuario($entrar,$email,$senha,$con){
+    if (isset($entrar)) {
+           
+        $verifica = mysqli_query($con,"SELECT `email`,`senha` FROM `usuarios` WHERE `email` = 
+        '$email' AND `senha` = '$senha'") or die("erro ao selecionar");
+          if (mysqli_num_rows($verifica)<=0){
+            echo"<script language='javascript' type='text/javascript'>
+            alert('Login e/ou senha incorretos');window.location
+            .href='login.html';</script>";
+            header("Location:index.php");
+            die();
+          }else{
+            setcookie("login",$email);
+            header("Location: pagina.php");
+          }
+      }
+    
 }
 
 

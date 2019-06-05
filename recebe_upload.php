@@ -1,4 +1,5 @@
 <?php
+require_once'conexa.php';
 if(isset($_FILES['file'])){
 	$textname = $_POST['nome'];
 	$arq = $_FILES['file']; 
