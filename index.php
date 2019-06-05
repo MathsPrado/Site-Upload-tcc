@@ -1,4 +1,4 @@
-<?php include'valida.php';?>
+<?php include'conexao.php';?>
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
@@ -24,3 +24,11 @@
         </div>
     </body>
 </html>
+
+<?php
+if (isset($_POST['user_email']) && isset($_POST['user_senha'])) {
+    $usEmail = $_POST['user_email'];
+    $usSenha = $_POST['user_senha'];
+    validaUsuario($con,$usEmail,$usSenha);
+}
+?>
