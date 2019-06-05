@@ -1,16 +1,19 @@
 <?php   
 
-    $username ="root";
-    $password ="";
-    function conect($in)
-    {
-        try {
-            $conn = new PDO('mysql:host=localhost;dbname=php', $username, $password);
-            $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-            mysql_query($in, $conn) or die(mysql_error());
-        } catch(PDOException $e) {
-            echo 'ERROR: ' . $e->getMessage();
-        }
-    }
+$con=mysqli_connect("localhost","root","","php");
+if (mysqli_connect_errno())
+  {
+  echo "Failed to connect to MySQL: " . mysqli_connect_error();
+  }
+
+function novoUsuario($nome,$senha,$curos,$email){
+    mysqli_query($con,"INSERT INTO `usuarios`(`senha`, `nome`, `curso`, `email`)
+    VALUES ($senha,$nome,$curso, $email)");
+
+    mysqli_close($con);
+}
+
+mysqli_query($con,"SELECT * FROM usuarios");
+
     
 ?>

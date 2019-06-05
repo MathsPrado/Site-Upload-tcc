@@ -36,7 +36,7 @@ input
     outline: none;
     color: #fff;
 }
-input[type=button]
+input[type=submit]
 {
     border: none;
     width: 190px;
@@ -48,7 +48,7 @@ input[type=button]
     border-radius: 15px;
     cursor: pointer;
 }
-input[type=button]:hover
+input[type=submit]:hover
 {
     color: #fff;
     background-color: black;
@@ -76,4 +76,23 @@ a:hover
 ::placeholder {
     color:aliceblue;
     opacity: 0.8; /* Firefox */
+}
+@-webkit-keyframes fadein {
+    from {top: 0; opacity: 0;} 
+    to {top: 30px; opacity: 1;}
+}
+
+@keyframes fadein {
+    from {top: 0; opacity: 0;}
+    to {top: 30px; opacity: 1;}
+}
+
+@-webkit-keyframes fadeout {
+    from {top: 30px; opacity: 1;} 
+    to {top: 0; opacity: 0;}
+}
+
+@keyframes fadeout {
+    from {top: 30px; opacity: 1;}
+    to {top: 0; opacity: 0;}
 }
