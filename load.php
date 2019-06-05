@@ -6,6 +6,13 @@ if (isset($_POST['entrar'])) {
     $entrar = $_POST['entrar'];
     validaUsuario($entrar,$usEmail,$usSenha,$con);
 }
+if(isset($_POST['cadastra'])){
+    $usName = $_POST['user_name'];
+    $usEmail = $_POST['user_email'];
+    $usCurso = $_POST['user_curso'];
+    $usPass = $_POST['user_pass'];
+    novoUsuario($con,$usName,$usPass,$usCurso,$usEmail);
+}
 
 function expressEnvia($caminho){
     

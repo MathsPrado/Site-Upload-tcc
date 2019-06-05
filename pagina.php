@@ -34,9 +34,17 @@ if(!isset($_SESSION['sessao_user']) && !isset($_SESSION['sessao_senha']))
                 <h2 style="color:#fff;">Arquivo</h2>
                 <input type="text" name="nome" placeholder="Nome do Arquivo"/>
                 <input type="file" name="file" />
-                <input type="submit" style="margin: 10px;" value="Enviar" />
+                <input type="submit" style="margin: 10px;" value="Enviar" onclick="myFunction()" />
                 <input type="submit" name="volta" style="margin: 10px;" value="Sair" />
+                <div id="msg">Foi enviado com sucesso!</div>
             </form>                
         </div>
     </body>
+    <script>
+        function myFunction() {
+            var x = document.getElementById("msg");
+            x.className = "show";
+            setTimeout(function(){ x.className = x.className.replace("show", ""); }, 3000);
+        }
+    </script>
 </html>

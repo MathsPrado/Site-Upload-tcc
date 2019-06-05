@@ -8,9 +8,8 @@ if (mysqli_connect_errno())
 
 function novoUsuario($con,$nome,$senha,$curso,$email){
     mysqli_query($con,"INSERT INTO `usuarios`(`senha`, `nome`, `curso`, `email`)
-    VALUES ($senha,$nome,$curso, $email)");
-
-    mysqli_close($con);
+    VALUES ('$senha','$nome','$curso', '$email')");
+    header("Location:cong.html");
 }
 
 function validaUsuario($entrar,$email,$senha,$con){
