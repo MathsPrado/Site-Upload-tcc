@@ -14,7 +14,8 @@ if(isset($_POST['cadastra'])){
     novoUsuario($con,$usName,$usPass,$usCurso,$usEmail);
 }
 
-function expressEnvia($caminho){
-    
+function expressEnvia($caminho,$con){
+    $usId = $_COOKIE['id_user'];
+    enviaPdf($usId,$caminho,$con);
 }
 ?>
