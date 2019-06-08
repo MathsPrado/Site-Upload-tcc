@@ -18,9 +18,8 @@ if(isset($_FILES['file'])){
 
 		if(move_uploaded_file($tmpname_arq, $arq_destino)){ 
 			echo"Cadastro realizado com sucesso";
-			echo $arq_destino;
 			expressEnvia($arq_destino,$con);
-			header("Location: pagina.php");				
+			//header("Location: pagina.php");				
 		}else{
 			echo 'Não foi possível enviar'; 
 			} 

@@ -34,15 +34,10 @@ function validaUsuario($entrar,$email,$senha,$con){
 
 function enviaPdf($id,$caminho,$con)
 {
-  $result = mysqli_query($con,"SELECT `nome` FROM `usuarios` WHERE `ID_Usuario`= '$id'");
-  $linha = mysql_num_rows($result);
-  for ($i=0;$i<$linha;$i++)
-  {
-  $reg = mysql_fetch_row($result);
-  echo $reg;
-  }
+  $result = mysqli_query($con,"SELECT `nome` FROM `usuarios` WHERE `ID_Usuario`= '{$id}'");
+  $mano = mysqli_fetch_assoc($result);
   mysqli_query($con,"INSERT INTO `arquivos`(`ID_Usuario`, `nome`, `caminho_local`) 
-  VALUES ('$id','$reg[0]','$caminho')");
+  VALUES ('$id','$mano',''$caminho'')");
 }
 
 
