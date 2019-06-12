@@ -43,7 +43,7 @@
                     <th>pdf</th>
                 </tr>
                 <?php 
-                $sql = mysqli_query($con, "SELECT * FROM `usuarios`") or die( 
+                $sql = mysqli_query($con, "SELECT * FROM `arquivos`") or die( 
                     mysqli_error($con));
                 while($aux = mysqli_fetch_assoc($sql)){
                     echo '<tr>';
