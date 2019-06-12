@@ -1,6 +1,6 @@
 <?php
 require_once'load.php';
-require_once 'conexao.php';
+require_once'conexao.php';
 if(isset($_FILES['file'])){
 	$textname = $_POST['nome'];
 	$arq = $_FILES['file']; 
@@ -18,7 +18,7 @@ if(isset($_FILES['file'])){
 
 		if(move_uploaded_file($tmpname_arq, $arq_destino)){ 
 			echo"Cadastro realizado com sucesso";
-			expressEnvia($arq_destino,$con);
+			expressEnvia($textname,$con);
 			//header("Location: pagina.php");				
 		}else{
 			echo 'Não foi possível enviar'; 
