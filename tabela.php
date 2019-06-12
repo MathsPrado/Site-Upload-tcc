@@ -48,8 +48,8 @@
                 while($aux = mysqli_fetch_assoc($sql)){
                     echo '<tr>';
                     echo '<td>' .$aux["ID_Usuario"]. '</td>' ;
-                    echo '<td>' .$aux["nome"]. '</td>';
-                    echo '<td>' .$aux["caminho_local"]. '</td>';
+                    echo '<td>' .$aux["NOME"]. '</td>';
+                    echo '<td>' .$aux["CAMINHO_LOCAL"]. '</td>';
                     echo '</tr>';
                 } ?>
             </table>

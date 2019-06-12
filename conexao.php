@@ -7,16 +7,16 @@ if (mysqli_connect_errno())
   }
 
 function novoUsuario($con,$nome,$senha,$curso,$email){
-    mysqli_query($con,"INSERT INTO `usuarios`(`senha`, `nome`, `curso`, `email`)
+    mysqli_query($con,"INSERT INTO `usuarios`(`SENHA`, `NOME`, `CURSO`, `EMAIL`)
     VALUES ('$senha','$nome','$curso', '$email')");
     header("Location:cong.html");
 }
 
 function validaUsuario($entrar,$email,$senha,$con){
     if (isset($entrar)) {
-        $pega_id = mysqli_num_rows(mysqli_query($con,"SELECT `id` FROM `usuarios` WHERE `email` = '$email'"));
-        $verifica = mysqli_query($con,"SELECT `email`,`senha` FROM `usuarios` WHERE `email` = 
-        '$email' AND `senha` = '$senha'") or die("erro ao selecionar");
+        $pega_id = mysqli_num_rows(mysqli_query($con,"SELECT `ID` FROM `usuarios` WHERE `EMAIL` = '$email'"));
+        $verifica = mysqli_query($con,"SELECT `EMAIL`,`SENHA` FROM `usuarios` WHERE `EMAIL` = 
+        '$email' AND `SENHA` = '$senha'") or die("erro ao selecionar");
           if (mysqli_num_rows($verifica)<=0){
             echo"<script language='javascript' type='text/javascript'>
             alert('Login e/ou senha incorretos');window.location
@@ -33,13 +33,10 @@ function validaUsuario($entrar,$email,$senha,$con){
 }
 
 function enviaPdf($id,$caminho,$con){
-  $result = mysqli_query($con,"SELECT * FROM `usuarios` WHERE `id`= '$id'")
+  $result = mysqli_query($con,"SELECT * FROM `usuarios` WHERE `ID`= '$id'")
   or die(mysqli_error($con));
   $mano = mysqli_fetch_assoc($result);
-  $nomex = $mano['nome'];
-  echo "nao: ".$nomex;
-  echo $caminho;
-  echo $id;
-  mysqli_query($con,"INSERT INTO `arquivos`(`ID_Usuario`, `nome`, `caminho_local`) 
+  $nomex = $mano['NOME'];
+  mysqli_query($con,"INSERT INTO `arquivos`(`ID_Usuario`, `NOME`, `CAMINHO_LOCAL`) 
   VALUES ('$id','$nomex','$caminho')")or die(mysqli_error($con));
 }
