@@ -36,10 +36,10 @@ function enviaPdf($id,$caminho,$con){
   $result = mysqli_query($con,"SELECT * FROM `usuarios` WHERE `id`= '$id'")
   or die(mysqli_error($con));
   $mano = mysqli_fetch_assoc($result);
-  $nomex = $mano['nome'];
+  $nomex = $mano['NOME'];
   echo "nao: ".$nomex;
   echo $caminho;
   echo $id;
-  mysqli_query($con,"INSERT INTO `arquivos`(`ID_Usuario`, `nome`, `caminho_local`) 
+  mysqli_query($con,"INSERT INTO `arquivos`(`ID_Usuario`, `NOME`, `CAMINHO_LOCAL`) 
   VALUES ('$id','$nomex','$caminho')")or die(mysqli_error($con));
 }
