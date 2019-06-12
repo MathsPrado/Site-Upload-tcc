@@ -41,5 +41,5 @@ function enviaPdf($id,$caminho,$con){
   echo $caminho;
   echo $id;
   mysqli_query($con,"INSERT INTO `arquivos`(`ID_Usuario`, `nome`, `caminho_local`) 
-  VALUES '".$id."','".$nomex."','".$caminho."'");
+  VALUES ('$id','$nomex','$caminho')")or die(mysqli_error($con));
 }
