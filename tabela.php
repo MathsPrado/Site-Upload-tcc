@@ -1,3 +1,4 @@
+<?php require_once'conexao.php';?>
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
@@ -46,11 +47,14 @@
                     <td>Griffin</td>
                     <td>$100</td>
                 </tr>
-                <?php while($dado = $limite->fetch_assoc()){
+                <?php 
+                $sql = mysqli_query($con, "SELECT * FROM `usuarios`") or die( 
+                    mysqli_error($con));
+                while($aux = mysqli_fetch_assoc($sql)){
                     echo '<tr>';
-                    echo '<td>' .$dado["campo 1 BD"]. '</td>' ;
-                    echo '<td>' .$dado["campo 2 BD"]. '</td>';
-                    echo '<td>' .$dado["campo 2 BD"]. '</td>';
+                    echo '<td>' .$aux["campo 1 BD"]. '</td>' ;
+                    echo '<td>' .$aux["campo 2 BD"]. '</td>';
+                    echo '<td>' .$aux["campo 2 BD"]. '</td>';
                     echo '</tr>';
                 } ?>
             </table>
