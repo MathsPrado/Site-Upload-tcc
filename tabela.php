@@ -38,23 +38,18 @@
         <div class="tabin">
             <table>
                 <tr>
+                    <th>Id</th>
                     <th>Nome</th>
-                    <th>EmaiL</th>
-                    <th>PDF</th>
-                </tr>
-                <tr>
-                    <td>Peter</td>
-                    <td>Griffin</td>
-                    <td>$100</td>
+                    <th>pdf</th>
                 </tr>
                 <?php 
                 $sql = mysqli_query($con, "SELECT * FROM `usuarios`") or die( 
                     mysqli_error($con));
                 while($aux = mysqli_fetch_assoc($sql)){
                     echo '<tr>';
-                    echo '<td>' .$aux["campo 1 BD"]. '</td>' ;
-                    echo '<td>' .$aux["campo 2 BD"]. '</td>';
-                    echo '<td>' .$aux["campo 2 BD"]. '</td>';
+                    echo '<td>' .$aux["ID_Usuario"]. '</td>' ;
+                    echo '<td>' .$aux["nome"]. '</td>';
+                    echo '<td>' .$aux["caminho_local"]. '</td>';
                     echo '</tr>';
                 } ?>
             </table>
