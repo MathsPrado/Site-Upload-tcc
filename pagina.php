@@ -1,17 +1,17 @@
 <?php
-include('conexao.php');
-session_start();
+require_once'conexao.php';
+require_once'load.php';
 if(isset($_COOKIE['id_user'])){
     $id = $_COOKIE['id_user'];
     $res = mysqli_query($con,"SELECT * FROM `usuarios` WHERE `ID`= '$id'")
     or die(mysqli_error($con));
     $rest = mysqli_fetch_assoc($res);
     $idx = $rest['ID'];
-    if ($idx == 1) {
-        header("Location:tabela.php");
+    if ($idx == 1){
+        header("Location: tabela.php");
     }
 }else{
-    header("Location:index.html");  
+    header("Location: index.html");  
 }
 ?> 
 <html>

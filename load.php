@@ -13,7 +13,9 @@ if(isset($_POST['cadastra'])){
     $usPass = $_POST['user_pass'];
     novoUsuario($con,$usName,$usPass,$usCurso,$usEmail);
 }
-
+if(isset($_POST['Sair'])){
+    session_destroy();
+}
 function expressEnvia($caminho,$con){
     $usId = $_COOKIE['id_user'];
     enviaPdf($usId,$caminho,$con);

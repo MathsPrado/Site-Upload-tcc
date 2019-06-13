@@ -14,7 +14,8 @@ function novoUsuario($con,$nome,$senha,$curso,$email){
 
 function validaUsuario($entrar,$email,$senha,$con){
     if (isset($entrar)) {
-        $pega_id = mysqli_num_rows(mysqli_query($con,"SELECT `ID` FROM `usuarios` WHERE `EMAIL` = '$email'"));
+        $pega_id = mysqli_query($con,"SELECT `ID` FROM `usuarios` WHERE `EMAIL` = '$email'");
+        $pega_ag =  mysqli_fetch_assoc($pega_id);
         $verifica = mysqli_query($con,"SELECT `EMAIL`,`SENHA` FROM `usuarios` WHERE `EMAIL` = 
         '$email' AND `SENHA` = '$senha'") or die("erro ao selecionar");
           if (mysqli_num_rows($verifica)<=0){
@@ -25,7 +26,7 @@ function validaUsuario($entrar,$email,$senha,$con){
             die();
           }else{
             setcookie("login",$email);
-            setcookie("id_user",$pega_id);
+            setcookie("id_user",$pega_ag['ID']);
             header("Location: pagina.php");
           }
       }

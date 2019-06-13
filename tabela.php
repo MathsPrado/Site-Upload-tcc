@@ -1,5 +1,7 @@
 <?php 
     require_once'conexao.php';
+    require_once'load.php';
+    $id = $_COOKIE['id_user'];
     $result = mysqli_query($con,"SELECT * FROM `usuarios` WHERE `ID`= '$id'")
     or die(mysqli_error($con));
     $rest = mysqli_fetch_assoc($result);
@@ -63,6 +65,7 @@
                     echo '</tr>';
                 } ?>
             </table>
+            <input type="submit" name="volta" style="margin: 10px;" value="Sair" />
         </div>
     </body>
 </html>
