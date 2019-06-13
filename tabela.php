@@ -1,4 +1,14 @@
-<?php require_once'conexao.php';?>
+<?php 
+    require_once'conexao.php';
+    $result = mysqli_query($con,"SELECT * FROM `usuarios` WHERE `ID`= '$id'")
+    or die(mysqli_error($con));
+    $rest = mysqli_fetch_assoc($result);
+    $idx = $rest['ID'];
+    if ($idx != 1) {
+        header("Location: pagina.php");
+    }
+    
+?>
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
@@ -48,8 +58,8 @@
                 while($aux = mysqli_fetch_assoc($sql)){
                     echo '<tr>';
                     echo '<td>' .$aux["ID_Usuario"]. '</td>' ;
-                    echo '<td>' .$aux["nome"]. '</td>';
-                    echo '<td>' .$aux["caminho_local"]. '</td>';
+                    echo '<td>' .$aux["NOME"]. '</td>';
+                    echo '<td>' .$aux["CAMINHO_LOCAL"]. '</td>';
                     echo '</tr>';
                 } ?>
             </table>

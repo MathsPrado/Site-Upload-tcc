@@ -1,24 +1,18 @@
- <?PHP 
-
+<?php
 include('conexao.php');
-
-
-
 session_start();
-
-if(!isset($_SESSION['sessao_user']) && !isset($_SESSION['sessao_senha']))
-
-{
-
-	//aqui ta logado
-
+if(isset($_COOKIE['id_user'])){
+    $id = $_COOKIE['id_user'];
+    $res = mysqli_query($con,"SELECT * FROM `usuarios` WHERE `ID`= '$id'")
+    or die(mysqli_error($con));
+    $rest = mysqli_fetch_assoc($res);
+    $idx = $rest['ID'];
+    if ($idx == 1) {
+        header("Location:tabela.php");
+    }
 }else{
-
-    header("Location:index.html");
-    
-} 
-
-
+    header("Location:index.html");  
+}
 ?> 
 <html>
 <html>
