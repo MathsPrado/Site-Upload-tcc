@@ -52,16 +52,19 @@
                 <tr>
                     <th>Id</th>
                     <th>Nome</th>
-                    <th>pdf</th>
+                    <th>Pdf</th>
+                    <th>Botao</th>
                 </tr>
                 <?php 
                 $sql = mysqli_query($con, "SELECT * FROM `arquivos`") or die( 
                     mysqli_error($con));
                 while($aux = mysqli_fetch_assoc($sql)){
-                    echo '<tr>';
+                    echo '<tr >';
                     echo '<td>' .$aux["ID_Usuario"]. '</td>' ;
                     echo '<td>' .$aux["NOME"]. '</td>';
                     echo '<td>' .$aux["CAMINHO_LOCAL"]. '</td>';
+                    $cam = $aux["CAMINHO_LOCAL"];
+                    echo '<td><a href="load.php?hello='.$cam.'">Download</a></td>';
                     echo '</tr>';
                 } ?>
             </table>
