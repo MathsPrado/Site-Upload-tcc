@@ -17,6 +17,9 @@ if(isset($_POST['cadastra'])){
 if(isset($_POST['Sair'])){
     session_destroy();
 }
+if(isset($_POST['volta'])){
+    session_destroy();
+}
 if(isset($_GET['hello'])) {
     $filepath = $_GET['hello'];
     

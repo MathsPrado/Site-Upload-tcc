@@ -52,8 +52,9 @@
         <div class="tabin">
             <form >
                 <input type="text" name="pesquisa" id="pesquisa" placeholder="Pesquisa pdf"/>
-                <input type="submit" name="volta" style="margin: 10px;" value="Sair" />
             </form>
+            <a href="index.php"><input type="submit" name="sair" style="margin: 8px;" value="Sair" /> </a>
+            <a href="tabela.php"><input type="submit" name="voltar" style="margin: 10px;" value="Voltar" /> </a>
             <div id="resultado">
                 <?php
                     $query =mysqli_query($con, "SELECT * FROM `arquivos`") or die( 

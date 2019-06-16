@@ -21,8 +21,8 @@ function validaUsuario($entrar,$email,$senha,$con){
           if (mysqli_num_rows($verifica)<=0){
             echo"<script language='javascript' type='text/javascript'>
             alert('Login e/ou senha incorretos');window.location
-            .href='index.html';</script>";
-            header("Location:index.html");
+            .href='index.php';</script>";
+            header("Location:index.php");
             die();
           }else{
             setcookie("login",$email);
