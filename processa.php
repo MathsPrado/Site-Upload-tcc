@@ -1,7 +1,7 @@
 <?php
     include 'conexao.php';
     $campo = $_POST['pesquisa'];
-    if($campo != ''){
+    if(!empty($campo)){
         $query =mysqli_query($con, "SELECT * FROM `arquivos` WHERE `NOME` = '$campo' OR `CAMINHO_LOCAL` = '$campo'")
         or die(mysqli_error($con));
         while ($aux = mysqli_fetch_assoc($query)) {
@@ -15,9 +15,9 @@
             </tbody>';
         }
     }else{
-        $query =mysqli_query($con, "SELECT * FROM `arquivos`") or die( 
+        $sql =mysqli_query($con, "SELECT * FROM `arquivos`") or die( 
             mysqli_error($con));
-        while ($aux = mysqli_fetch_assoc($query)) {
+        while ($aux = mysqli_fetch_assoc($sql)) {
             echo '<tr >
             <td>'.$aux["ID_Usuario"].'</td>
             <td>'.$aux["NOME"].'</td>
