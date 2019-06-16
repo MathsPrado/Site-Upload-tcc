@@ -17,6 +17,8 @@
         <title>Login</title>
         <link href="css/page.css" rel="stylesheet" type="text/css" />
         <link href="https://fonts.googleapis.com/css?family=Play" rel="stylesheet">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+
         <style>
         table {
             border-collapse: collapse;
@@ -48,27 +50,59 @@
     </head>
     <body>
         <div class="tabin">
-            <table>
-                <tr>
-                    <th>Id</th>
-                    <th>Nome</th>
-                    <th>Pdf</th>
-                    <th>Botao</th>
-                </tr>
-                <?php 
-                $sql = mysqli_query($con, "SELECT * FROM `arquivos`") or die( 
-                    mysqli_error($con));
-                while($aux = mysqli_fetch_assoc($sql)){
-                    echo '<tr >';
-                    echo '<td>' .$aux["ID_Usuario"]. '</td>' ;
-                    echo '<td>' .$aux["NOME"]. '</td>';
-                    echo '<td>' .$aux["CAMINHO_LOCAL"]. '</td>';
-                    $cam = $aux["CAMINHO_LOCAL"];
-                    echo '<td><a href="load.php?hello='.$cam.'">Download</a></td>';
-                    echo '</tr>';
-                } ?>
+            <form >
+                <input type="text" name="pesquisa" id="pesquisa" placeholder="Pesquisa pdf"/>
+                <input type="submit" name="volta" style="margin: 10px;" value="Sair" />
+            </form>
+            <div id="resultado">
+                <?php
+                    $query =mysqli_query($con, "SELECT * FROM `arquivos`") or die( 
+                        mysqli_error($con));
+                    echo "
+                    <table>
+                    <thead>
+                        <tr>
+                            <th>Id</th>
+                            <th>Nome</th>
+                            <th>Pdf</th>
+                            <th>Botao</th>
+                        </tr>
+                    </thead>
+                    <tbody>";
+                    while ($aux = mysqli_fetch_assoc($query)) {
+                        echo '<tr >
+                        <td>'.$aux["ID_Usuario"].'</td>
+                        <td>'.$aux["NOME"].'</td>
+                        <td>'.$aux["CAMINHO_LOCAL"].'</td>';
+                        $cam = $aux["CAMINHO_LOCAL"];
+                        echo'<td><a href="load.php?hello='.$cam.'">Download</a></td>
+                        </tr>
+                        </tbody>';
+                    }
+                ?>
+            </div>
             </table>
-            <input type="submit" name="volta" style="margin: 10px;" value="Sair" />
+            
         </div>
     </body>
+    <script>
+        $(document).ready(function(){
+            $('#pesquisa').keyup(function(){
+                $('form').submit(function(){
+                    var dados = $(this).serialize();
+                    $.ajax({
+                        url: 'processa.php',
+                        type: 'POST',
+                        dataType: 'html',
+                        data: dados,
+                        success: function(data){
+                            $('#resultado').empty().html(data);
+                        }
+                    });
+                    return false
+                });
+                $('form').trigger('submit');
+            });
+        });
+    </script>
 </html>
