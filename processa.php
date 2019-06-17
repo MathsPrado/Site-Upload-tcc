@@ -2,7 +2,7 @@
     include 'conexao.php';
     $campo = $_POST['pesquisa'];
     if(!empty($campo)){
-        $query =mysqli_query($con, "SELECT * FROM `arquivos` WHERE `NOME` = '$campo' OR `CAMINHO_LOCAL` = '$campo'")
+        $query =mysqli_query($con, "SELECT * FROM `arquivos` WHERE `NOME` LIKE '%$campo%' OR `CAMINHO_LOCAL` LIKE '%$campo%'")
         or die(mysqli_error($con));
         while ($aux = mysqli_fetch_assoc($query)) {
             echo '<tr >
