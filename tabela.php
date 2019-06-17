@@ -57,7 +57,8 @@
             <a href="tabela.php"><input type="submit" name="voltar" style="margin: 10px;" value="Voltar" /> </a>
             <div id="resultado">
                 <?php
-                    $query =mysqli_query($con, "SELECT * FROM `arquivos`") or die( 
+                    $query =mysqli_query($con, "SELECT c.ID_Usuario, c.NOMEX, ca.CURSO, c.CAMINHO_LOCAL 
+                    FROM `arquivos` AS c INNER JOIN `usuarios` AS ca ON c.ID_Usuario=ca.ID") or die( 
                         mysqli_error($con));
                     echo "
                     <table>
@@ -65,6 +66,7 @@
                         <tr>
                             <th>Id</th>
                             <th>Nome</th>
+                            <th>Curso</th>
                             <th>Pdf</th>
                             <th>Botao</th>
                         </tr>
@@ -73,7 +75,8 @@
                     while ($aux = mysqli_fetch_assoc($query)) {
                         echo '<tr >
                         <td>'.$aux["ID_Usuario"].'</td>
-                        <td>'.$aux["NOME"].'</td>
+                        <td>'.$aux["NOMEX"].'</td>
+                        <td>'.$aux["CURSO"].'</td>
                         <td>'.$aux["CAMINHO_LOCAL"].'</td>';
                         $cam = $aux["CAMINHO_LOCAL"];
                         echo'<td><a href="load.php?hello='.$cam.'">Download</a></td>
